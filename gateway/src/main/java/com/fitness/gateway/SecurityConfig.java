@@ -33,11 +33,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of(
-                "http://localhost:5173",
-                "https://fitness-frontend.onrender.com",
-                "https://fitness-frontend-y2xp.onrender.com"
-        ));
+        config.setAllowedOrigins(List.of("http://localhost:5173"));
         config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-User-ID"));
         config.setAllowCredentials(true);

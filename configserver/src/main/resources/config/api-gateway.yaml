@@ -1,6 +1,3 @@
-server:
-  port: ${PORT:8080}
-
 spring:
   application:
     name: api-gateway
@@ -9,30 +6,31 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: ${KEYCLOAK_ISSUER_URI:https://dev-ooryx7evb8kbyq1z.us.auth0.com/}
-          jwk-set-uri: ${KEYCLOAK_JWK_URI:https://dev-ooryx7evb8kbyq1z.us.auth0.com/.well-known/jwks.json}
+          issuer-uri: http://localhost:8181/realms/fitness-oauth2
+          jwk-set-uri: http://localhost:8181/realms/fitness-oauth2/protocol/openid-connect/certs
 
   cloud:
     gateway:
-      server:
-        webflux:
-          routes:
-            - id: user-service
-              uri: ${USER_SERVICE_URL:lb://USER-SERVICE}
-              predicates:
-                - Path=/api/users/**
+      routes:
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/api/users/**
 
-            - id: activity-service
-              uri: ${ACTIVITY_SERVICE_URL:lb://ACTIVITY-SERVICE}
-              predicates:
-                - Path=/api/activities/**
+        - id: ai-service
+          uri: lb://AI-SERVICE
+          predicates:
+            - Path=/api/recommendations/**
 
-            - id: ai-service
-              uri: ${AI_SERVICE_URL:lb://AI-SERVICE}
-              predicates:
-                - Path=/api/recommendations/**
+        - id: activity-service
+          uri: lb://ACTIVITY-SERVICE
+          predicates:
+            - Path=/api/activities/**
+
+server:
+  port: 8080
 
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${EUREKA_URL:http://eureka:8761/eureka/}
+      defaultZone: http://localhost:8761/eureka/
