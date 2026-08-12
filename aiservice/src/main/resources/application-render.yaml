@@ -16,8 +16,7 @@ groq:
 
 eureka:
   client:
-    serviceUrl:
-      defaultZone: ${EUREKA_URL:http://eureka:8761/eureka/}
+    enabled: false
 
 rabbitmq:
   exchange:

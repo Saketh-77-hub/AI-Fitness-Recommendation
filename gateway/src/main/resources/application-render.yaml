@@ -2,9 +2,6 @@ server:
   port: ${PORT:8080}
 
 spring:
-  application:
-    name: api-gateway
-
   security:
     oauth2:
       resourceserver:
@@ -20,17 +17,16 @@ spring:
           predicates:
             - Path=/api/users/**
 
-        - id: ai-service
-          uri: ${AI_SERVICE_URL}
-          predicates:
-            - Path=/api/recommendations/**
-
         - id: activity-service
           uri: ${ACTIVITY_SERVICE_URL}
           predicates:
             - Path=/api/activities/**
 
+        - id: ai-service
+          uri: ${AI_SERVICE_URL}
+          predicates:
+            - Path=/api/recommendations/**
+
 eureka:
   client:
-    serviceUrl:
-      defaultZone: ${EUREKA_URL:http://eureka:8761/eureka/}
+    enabled: false

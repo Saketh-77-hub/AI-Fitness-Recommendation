@@ -1,23 +1,17 @@
 server:
-  port: ${PORT:8083}
+  port: ${PORT:8082}
 
 spring:
   data:
     mongodb:
       uri: ${MONGODB_URI}
-      database: fitnessrecommendations
+      database: fitnessactivity
   rabbitmq:
     addresses: ${RABBITMQ_URL}
 
-groq:
-  api:
-    url: https://api.groq.com/openai/v1
-    key: ${GROQ_API_KEY}
-
 eureka:
   client:
-    serviceUrl:
-      defaultZone: ${EUREKA_URL:http://eureka:8761/eureka/}
+    enabled: false
 
 rabbitmq:
   exchange:
