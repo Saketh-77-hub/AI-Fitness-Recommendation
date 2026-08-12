@@ -1,0 +1,33 @@
+# IDE
+.idea/
+*.iws
+*.iml
+*.ipr
+.vscode/
+
+# Maven builds
+target/
+.mvn/wrapper/maven-wrapper.jar
+
+# Spring Boot
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# Node / Frontend
+node_modules/
+dist/
+dist-ssr
+*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Secrets
+.env
+*.env
+
+# OS
+.DS_Store
+Thumbs.db
