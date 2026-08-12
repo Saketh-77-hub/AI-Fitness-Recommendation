@@ -1,14 +1,15 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017
+      uri: mongodb://mongodb:27017
       database: fitnessrecommendations
 
   rabbitmq:
-    host: localhost
+    host: rabbitmq
     port: 5672
     username: guest
     password: guest
+
 server:
   port: 8083
 
@@ -17,12 +18,10 @@ groq:
     url: https://api.groq.com/openai/v1
     key: ${GROQ_API_KEY}
 
-
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-
+      defaultZone: http://eureka:8761/eureka/
 
 rabbitmq:
   exchange:

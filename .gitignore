@@ -27,6 +27,8 @@ npm-debug.log*
 # Secrets
 .env
 *.env
+!.env.example
+!fitness-app-frontend/.env.production
 
 # OS
 .DS_Store
