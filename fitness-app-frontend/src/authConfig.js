@@ -1,7 +1,7 @@
 export const authConfig = {
-  clientId: 'oauth2-pkce-client',
-  authorizationEndpoint: `${import.meta.env.VITE_KEYCLOAK_URL}/realms/fitness-oauth2/protocol/openid-connect/auth`,
-  tokenEndpoint: `${import.meta.env.VITE_KEYCLOAK_URL}/realms/fitness-oauth2/protocol/openid-connect/token`,
+  clientId: import.meta.env.VITE_AUTH0_CLIENT_ID,
+  authorizationEndpoint: `https://${import.meta.env.VITE_AUTH0_DOMAIN}/authorize`,
+  tokenEndpoint: `https://${import.meta.env.VITE_AUTH0_DOMAIN}/oauth/token`,
   redirectUri: import.meta.env.VITE_REDIRECT_URI || 'http://localhost:5173/',
   scope: 'openid profile email offline_access',
   onRefreshTokenExpire: (event) => event.logIn(),

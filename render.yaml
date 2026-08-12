@@ -66,9 +66,9 @@ services:
       - key: AI_SERVICE_URL
         value: https://fitness-aiservice.onrender.com
       - key: KEYCLOAK_ISSUER_URI
-        sync: false
+        value: https://dev-ooryx7evb8kbyq1z.us.auth0.com/
       - key: KEYCLOAK_JWK_URI
-        sync: false
+        value: https://dev-ooryx7evb8kbyq1z.us.auth0.com/.well-known/jwks.json
 
   # ── Frontend ───────────────────────────────────────────────────────────────
   - type: web

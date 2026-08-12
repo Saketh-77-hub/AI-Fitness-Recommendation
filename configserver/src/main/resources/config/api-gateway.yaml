@@ -9,8 +9,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: ${KEYCLOAK_ISSUER_URI}
-          jwk-set-uri: ${KEYCLOAK_JWK_URI}
+          issuer-uri: ${KEYCLOAK_ISSUER_URI:https://dev-ooryx7evb8kbyq1z.us.auth0.com/}
+          jwk-set-uri: ${KEYCLOAK_JWK_URI:https://dev-ooryx7evb8kbyq1z.us.auth0.com/.well-known/jwks.json}
 
   cloud:
     gateway:
